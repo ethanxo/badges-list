@@ -6,7 +6,7 @@ class Badge extends LitElement {
   };
 
   static styles = css`
-    @import url('https://fonts.googleapis. com/css2?family=Open+Sans:wght@300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 
     :host {
       --color-primary: #4e97d1;
@@ -65,7 +65,7 @@ class Badge extends LitElement {
     }
 
     .badge .content .author p {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 400;
     }
   `;
