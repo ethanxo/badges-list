@@ -1,8 +1,16 @@
 import { LitElement, html, css } from 'lit';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@lrnwebcomponents/simple-icon/simple-icon.js";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 
 class Badge extends LitElement {
   static properties = {
     header: { type: String },
+    department: { type: String },
+    name: { type: String },
+    author: { type: String },
+    icon: { type: String }
   };
 
   static styles = css`
@@ -70,29 +78,37 @@ class Badge extends LitElement {
     }
   `;
 
+  constructor() {
+    super();
+    this.department = "badge dept";
+    this.name = "First Badge";
+    this.author = "author1";
+    this.icon = "https://cdn-icons-png.flaticon.com/512/9279/9279639.png";
+  }
+
   render() {
     return html`
       <div class="badge">
         <div class="accent"></div>
         <div class="content">
           <div class="header">
-            <p>Mathematics Department</p>
+            <p>${this.department}</p>
           </div>
           <div
             style="display: flex; flex-direction: row; justify-content: space-between; padding-top: 4px;"
           >
             <div class="name">
-              <p>First Badge: Nothing</p>
+              <p>${this.name}</p>
             </div>
             <div class="icon">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/9279/9279639.png"
+                src="${this.icon}"
                 alt="icon"
               />
             </div>
           </div>
           <div class="author">
-            <p>Creator: Random Name</p>
+            <p>${this.author}</p>
           </div>
         </div>
       </div>

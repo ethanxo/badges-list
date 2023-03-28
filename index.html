@@ -8,65 +8,44 @@
   <base href="/">
 
   <style>
-    form {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-      }
-      input[type="text"] {
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: none;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        width: 500px;
-        max-width: 100%;
-      }
-      select {
-        margin-left: 10px;
-      }
-      button[type="submit"] {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #0077cc;
-        color: #fff;
-        border-radius: 5px;
-        border: none;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        margin-left: 10px;
-        cursor: pointer;
-      }
-      button[type="submit"]:hover {
-        background-color: #005fa3;
-      }
-
-      .search-results {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 20px;
-      }
+    .form {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      width: 500px;
+      max-width: 100%;
+    }
+    select {
+      margin-left: 10px;
+    }
   </style>
   <title>badges-list</title>
 </head>
 
 <body>
-  <form>
-    <input type="text" id="search-input" placeholder="Search...">
+  <div class="form">
+    <input type="text" placeholder="Search...">
     <select>
       <option value="all">All</option>
       <option value="name">Name</option>
       <option value="category">Category</option>
       <option value="department">Department</option>
     </select>
-    <button type="submit">Search</button>
-  </form>
-  <div class="search-results"></div>
-  <badge-obj></badge-obj>
+    <search-button></search-button>
+  </div>
+
   <badges-list></badges-list>
 
-  <script type="module" src="./src/badge.js"></script>
   <script type="module" src="./src/badges-list.js"></script>
+  <script type="module" src="./src/search-button.js"></script>
 </body>
 
 </html>
