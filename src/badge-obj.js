@@ -6,11 +6,12 @@ import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 
 class Badge extends LitElement {
   static properties = {
-    header: { type: String },
     department: { type: String },
     name: { type: String },
     author: { type: String },
-    icon: { type: String }
+    icon: { type: String },
+    color: { type: String },
+    accent: { type: String }
   };
 
   static styles = css`
@@ -62,7 +63,7 @@ class Badge extends LitElement {
     }
 
     .badge .content .name p {
-      font-size: 20px;
+      font-size: 16px;
       max-width: 128px;
       font-weight: 300;
     }
@@ -101,10 +102,8 @@ class Badge extends LitElement {
               <p>${this.name}</p>
             </div>
             <div class="icon">
-              <img
-                src="${this.icon}"
-                alt="icon"
-              />
+              <simple-icon accent-color="${this.accent}" icon="${this.icon}">
+              </simple-icon>
             </div>
           </div>
           <div class="author">

@@ -8,7 +8,7 @@ class SearchButton extends LitElement {
 
   constructor() {
     super();
-    this.populate(null, null);
+    //this.populate(null, null);
   }
 
   search(query, type) {

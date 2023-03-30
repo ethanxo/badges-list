@@ -8,9 +8,23 @@ class BadgesList extends LitElement {
     }
   }
 
-  populate() {
-    // populate results div with badge objs in current badges array
+  constructor() {
+    super();
     this.badges = [];
+    this.populate();
+  }
+
+  populate() {
+    const address = '../api/badges';
+        fetch(address).then((response) => {
+            if (response.ok) {
+                return response.json()
+            }
+            return [];
+        })
+        .then((data) => {
+            this.badges = data;
+        });
   }
 
   static styles = css`
@@ -33,7 +47,7 @@ class BadgesList extends LitElement {
       `)}
     </div>
     `;
-  }s
+  }
 }
 
 customElements.define('badges-list', BadgesList);
