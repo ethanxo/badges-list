@@ -8,21 +8,62 @@
   <base href="/">
 
   <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #ededed;
+    .form {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      width: 500px;
+      max-width: 100%;
+    }
+    select {
+      margin-left: 10px;
+    }
+    .custom-dropdown {
+        background-color: #f2f2f2;
+        color: #333;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        font-size: 16px;
+        font-weight: bold;
+
+        position: absolute;
+        top: 5.5%;
+        left: 83%;
+        transform: translate(-50%, -50%);
     }
   </style>
   <title>badges-list</title>
 </head>
 
 <body>
+  <div class="form">
+    <input type="text" placeholder="Search...">
+    <select class="custom-dropdown">
+      <option value="all">All topics</option>
+      <option value="option1">Information Science and Technology</option>
+      <option value="option2">Environmental Science</option>
+      <option value="option3">Biology</option>
+      <option value="option4">Computer Science</option>
+      <option value="option5">Mathematics</option>
+      <option value="option6">College of Communications</option>
+      <option value="option7">History</option>
+      <option value="option8">Agricultural Sciences</option>
+    </select>
+    <search-button></search-button>
+  </div>
+
   <badges-list></badges-list>
 
   <script type="module" src="./src/badges-list.js"></script>
-</body>
-
-</html>
+  <script type="module" src="./src/search-button.js"></script>
+/script>
