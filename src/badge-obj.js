@@ -85,6 +85,8 @@ class Badge extends LitElement {
     this.name = "First Badge";
     this.author = "author1";
     this.icon = "https://cdn-icons-png.flaticon.com/512/9279/9279639.png";
+    this.color = "#4e97d1";
+    this.accent = "#a3ceef";
   }
 
   render() {
