@@ -6,7 +6,8 @@ import "./badge-obj.js";
 class BadgesList extends LitElement {
   static get properties() {
     return {
-      badges: { type: Array }
+      badges: { type: Array },
+      rand: { type: Number, reflect: true }
     }
   }
 
@@ -38,15 +39,15 @@ class BadgesList extends LitElement {
         return true; 
       if (search === "all") {
         for (const item in badge) {
-          if (badge[item].toString().toLowerCase().includes(query.toLowerCase()))
+          if (badge[item].toLowerCase().includes(query.toLowerCase()))
             return true;
         }
       }
       else {
-        if (badge[search].toString().toLowerCase().includes(query.toLowerCase()))
+        if (badge[`${search}`].toLowerCase().includes(query.toLowerCase()))
           return true;
       }
-      return true;
+      return false;
     });
   }
 

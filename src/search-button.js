@@ -13,6 +13,8 @@ class SearchButton extends LitElement {
     console.log("update attr");
     document.querySelector('search-button').setAttribute("_search", document.getElementById('select').selectedOptions[0].value);
     document.querySelector('search-button').setAttribute("_query", document.getElementById('query').value);
+    // ghetto workaround to force update when search is clicked
+    document.querySelector('badges-list').setAttribute("rand", Math.floor(Math.random() * 100));
   }
 
   // eslint-disable-next-line no-useless-constructor
@@ -23,6 +25,8 @@ class SearchButton extends LitElement {
   firstUpdated() {
     // constructor does not have access to dom
     this.shadowRoot.getElementById('search').addEventListener("click", this.search);
+    document.querySelector('search-button').setAttribute("_search", "all");
+    document.querySelector('search-button').setAttribute("_query", "");
   }
 
   static styles = css`
