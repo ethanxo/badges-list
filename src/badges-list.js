@@ -1,3 +1,5 @@
+/* eslint-disable no-lonely-if */
+/* eslint-disable no-restricted-syntax */
 import { LitElement, html, css } from 'lit';
 import "./badge-obj.js";
 
@@ -27,6 +29,27 @@ class BadgesList extends LitElement {
         });
   }
 
+  search() {
+    const search = document.querySelector('search-button').getAttribute("_search");
+    const query = document.querySelector('search-button').getAttribute("_query");
+    return this.badges.filter((badge) => {
+      // eslint-disable-next-line no-restricted-syntax
+      if (search === "all" && query === "")
+        return true; 
+      if (search === "all") {
+        for (const item in badge) {
+          if (badge[item].toString().toLowerCase().includes(query.toLowerCase()))
+            return true;
+        }
+      }
+      else {
+        if (badge[search].toString().toLowerCase().includes(query.toLowerCase()))
+          return true;
+      }
+      return true;
+    });
+  }
+
   static styles = css`
     .results {
       display: flex;
@@ -42,8 +65,8 @@ class BadgesList extends LitElement {
   render() {
     return html`
     <div class="results">
-      ${this.badges.map(badge => html`
-        <badge-obj name="${badge.name}" icon="${badge.icon}" category="${badge.category}" department="${badge.department}"></badge-obj>
+      ${this.search().map(badge => html`
+        <badge-obj name="${badge.name}" icon="${badge.icon}" department="${badge.department}" author="${badge.author}"></badge-obj>
       `)}
     </div>
     `;

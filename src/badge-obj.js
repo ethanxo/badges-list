@@ -67,9 +67,9 @@ class Badge extends LitElement {
       max-width: 128px;
       font-weight: 300;
     }
-    .badge .content .icon img {
-      max-width: 54px;
-      max-height: 54px;
+    .badge .content .icon simple-icon {
+      --simple-icon-width: 54px;
+      --simple-icon-height: 54px;
       padding-right: 12px;
     }
 
@@ -81,10 +81,10 @@ class Badge extends LitElement {
 
   constructor() {
     super();
-    this.department = "badge dept";
-    this.name = "First Badge";
-    this.author = "author1";
-    this.icon = "https://cdn-icons-png.flaticon.com/512/9279/9279639.png";
+    this.department = "dept";
+    this.name = "name";
+    this.author = "author";
+    this.icon = "communication:textsms";
     this.color = "#4e97d1";
     this.accent = "#a3ceef";
   }

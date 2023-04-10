@@ -2,30 +2,27 @@ import { LitElement, html, css } from 'lit';
 import "./badges-list.js";
 
 class SearchButton extends LitElement {
-  static properties = {
-    header: { type: String }
+  static get properties() {
+    return {
+      _search: { type: String, reflect: true },
+      _query: { type: String, reflect: true }
+    }
   }
 
+  search() {
+    console.log("update attr");
+    document.querySelector('search-button').setAttribute("_search", document.getElementById('select').selectedOptions[0].value);
+    document.querySelector('search-button').setAttribute("_query", document.getElementById('query').value);
+  }
+
+  // eslint-disable-next-line no-useless-constructor
   constructor() {
     super();
-    //this.populate(null, null);
   }
 
-  search(query, type) {
-    this.badges = [];
-    if (type === "name") {
-        //
-    }
-    else if (type === "category") {
-        //
-    }
-    else if (type === "department") {
-        //
-    }
-    else {
-        // 
-    }
-    this.badges.append(null);
+  firstUpdated() {
+    // constructor does not have access to dom
+    this.shadowRoot.getElementById('search').addEventListener("click", this.search);
   }
 
   static styles = css`
